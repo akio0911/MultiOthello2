@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EBD145370521C3A2BA4835B6 /* Pods_MultiOthello2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25A4A7C711925D5FEEFFE3C /* Pods_MultiOthello2.framework */; };
 		F46A9D3427CA114400A3AB18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D3327CA114400A3AB18 /* AppDelegate.swift */; };
 		F46A9D3627CA114400A3AB18 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F46A9D3527CA114400A3AB18 /* GameScene.sks */; };
 		F46A9D3827CA114400A3AB18 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F46A9D3727CA114400A3AB18 /* Actions.sks */; };
@@ -15,9 +16,22 @@
 		F46A9D3F27CA114400A3AB18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46A9D3D27CA114400A3AB18 /* Main.storyboard */; };
 		F46A9D4127CA114500A3AB18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F46A9D4027CA114500A3AB18 /* Assets.xcassets */; };
 		F46A9D4427CA114500A3AB18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46A9D4227CA114500A3AB18 /* LaunchScreen.storyboard */; };
+		F46A9D4B27CA135800A3AB18 /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D4A27CA135800A3AB18 /* ServerRequest.swift */; };
+		F46A9D4D27CA138100A3AB18 /* SingletonSocketIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D4C27CA138100A3AB18 /* SingletonSocketIO.swift */; };
+		F46A9D4F27CA13D900A3AB18 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D4E27CA13D900A3AB18 /* Account.swift */; };
+		F46A9D5127CA14CD00A3AB18 /* LoginNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D5027CA14CD00A3AB18 /* LoginNameViewController.swift */; };
+		F46A9D5327CA150000A3AB18 /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D5227CA150000A3AB18 /* LoginPasswordViewController.swift */; };
+		F46A9D5527CA159800A3AB18 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D5427CA159800A3AB18 /* TabBarController.swift */; };
+		F46A9D5727CA162C00A3AB18 /* CreateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D5627CA162C00A3AB18 /* CreateTableViewController.swift */; };
+		F46A9D5927CA168100A3AB18 /* TableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D5827CA168100A3AB18 /* TableListViewController.swift */; };
+		F46A9D5B27CA19B300A3AB18 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D5A27CA19B300A3AB18 /* TableViewCell.swift */; };
+		F46A9D5D27CA238900A3AB18 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D5C27CA238900A3AB18 /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10E8181063CEBA9630862B5C /* Pods-MultiOthello2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiOthello2.debug.xcconfig"; path = "Target Support Files/Pods-MultiOthello2/Pods-MultiOthello2.debug.xcconfig"; sourceTree = "<group>"; };
+		F25A4A7C711925D5FEEFFE3C /* Pods_MultiOthello2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiOthello2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3264F4CB414923A1D955BA0 /* Pods-MultiOthello2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiOthello2.release.xcconfig"; path = "Target Support Files/Pods-MultiOthello2/Pods-MultiOthello2.release.xcconfig"; sourceTree = "<group>"; };
 		F46A9D3027CA114400A3AB18 /* MultiOthello2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiOthello2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46A9D3327CA114400A3AB18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F46A9D3527CA114400A3AB18 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -27,6 +41,16 @@
 		F46A9D3E27CA114400A3AB18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F46A9D4027CA114500A3AB18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F46A9D4327CA114500A3AB18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F46A9D4A27CA135800A3AB18 /* ServerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
+		F46A9D4C27CA138100A3AB18 /* SingletonSocketIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonSocketIO.swift; sourceTree = "<group>"; };
+		F46A9D4E27CA13D900A3AB18 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		F46A9D5027CA14CD00A3AB18 /* LoginNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNameViewController.swift; sourceTree = "<group>"; };
+		F46A9D5227CA150000A3AB18 /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
+		F46A9D5427CA159800A3AB18 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F46A9D5627CA162C00A3AB18 /* CreateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTableViewController.swift; sourceTree = "<group>"; };
+		F46A9D5827CA168100A3AB18 /* TableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListViewController.swift; sourceTree = "<group>"; };
+		F46A9D5A27CA19B300A3AB18 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		F46A9D5C27CA238900A3AB18 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,17 +58,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD145370521C3A2BA4835B6 /* Pods_MultiOthello2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1335E3DEF7BE86337171985B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				10E8181063CEBA9630862B5C /* Pods-MultiOthello2.debug.xcconfig */,
+				F3264F4CB414923A1D955BA0 /* Pods-MultiOthello2.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7EFFDE947126997BBF17F0D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F25A4A7C711925D5FEEFFE3C /* Pods_MultiOthello2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F46A9D2727CA114400A3AB18 = {
 			isa = PBXGroup;
 			children = (
 				F46A9D3227CA114400A3AB18 /* MultiOthello2 */,
 				F46A9D3127CA114400A3AB18 /* Products */,
+				1335E3DEF7BE86337171985B /* Pods */,
+				7EFFDE947126997BBF17F0D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +111,16 @@
 				F46A9D3D27CA114400A3AB18 /* Main.storyboard */,
 				F46A9D4027CA114500A3AB18 /* Assets.xcassets */,
 				F46A9D4227CA114500A3AB18 /* LaunchScreen.storyboard */,
+				F46A9D4A27CA135800A3AB18 /* ServerRequest.swift */,
+				F46A9D4C27CA138100A3AB18 /* SingletonSocketIO.swift */,
+				F46A9D4E27CA13D900A3AB18 /* Account.swift */,
+				F46A9D5027CA14CD00A3AB18 /* LoginNameViewController.swift */,
+				F46A9D5227CA150000A3AB18 /* LoginPasswordViewController.swift */,
+				F46A9D5427CA159800A3AB18 /* TabBarController.swift */,
+				F46A9D5627CA162C00A3AB18 /* CreateTableViewController.swift */,
+				F46A9D5827CA168100A3AB18 /* TableListViewController.swift */,
+				F46A9D5A27CA19B300A3AB18 /* TableViewCell.swift */,
+				F46A9D5C27CA238900A3AB18 /* UIView+.swift */,
 			);
 			path = MultiOthello2;
 			sourceTree = "<group>";
@@ -78,9 +132,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F46A9D4727CA114500A3AB18 /* Build configuration list for PBXNativeTarget "MultiOthello2" */;
 			buildPhases = (
+				7DC69D33C5ED52554B68EF06 /* [CP] Check Pods Manifest.lock */,
 				F46A9D2C27CA114400A3AB18 /* Sources */,
 				F46A9D2D27CA114400A3AB18 /* Frameworks */,
 				F46A9D2E27CA114400A3AB18 /* Resources */,
+				1ABE7C675C6F75FF27AC66B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,14 +195,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1ABE7C675C6F75FF27AC66B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MultiOthello2/Pods-MultiOthello2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MultiOthello2/Pods-MultiOthello2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MultiOthello2/Pods-MultiOthello2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DC69D33C5ED52554B68EF06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MultiOthello2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F46A9D2C27CA114400A3AB18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F46A9D5127CA14CD00A3AB18 /* LoginNameViewController.swift in Sources */,
+				F46A9D5727CA162C00A3AB18 /* CreateTableViewController.swift in Sources */,
+				F46A9D5927CA168100A3AB18 /* TableListViewController.swift in Sources */,
 				F46A9D3A27CA114400A3AB18 /* GameScene.swift in Sources */,
 				F46A9D3C27CA114400A3AB18 /* GameViewController.swift in Sources */,
+				F46A9D5527CA159800A3AB18 /* TabBarController.swift in Sources */,
+				F46A9D4B27CA135800A3AB18 /* ServerRequest.swift in Sources */,
+				F46A9D4D27CA138100A3AB18 /* SingletonSocketIO.swift in Sources */,
+				F46A9D5327CA150000A3AB18 /* LoginPasswordViewController.swift in Sources */,
+				F46A9D5B27CA19B300A3AB18 /* TableViewCell.swift in Sources */,
+				F46A9D5D27CA238900A3AB18 /* UIView+.swift in Sources */,
 				F46A9D3427CA114400A3AB18 /* AppDelegate.swift in Sources */,
+				F46A9D4F27CA13D900A3AB18 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +398,7 @@
 		};
 		F46A9D4827CA114500A3AB18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10E8181063CEBA9630862B5C /* Pods-MultiOthello2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -318,6 +427,7 @@
 		};
 		F46A9D4927CA114500A3AB18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3264F4CB414923A1D955BA0 /* Pods-MultiOthello2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
