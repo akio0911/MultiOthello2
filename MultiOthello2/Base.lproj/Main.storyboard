@@ -16,24 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XCc-0K-JQk">
-                                <rect key="frame" x="159" y="277" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XCc-0K-JQk">
+                                <rect key="frame" x="20" y="215" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmG-zz-6Du">
-                                <rect key="frame" x="174" y="429" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmG-zz-6Du">
+                                <rect key="frame" x="180.5" y="432.5" width="53" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="決定"/>
                                 <connections>
                                     <action selector="decideButtonTapped:" destination="Ri0-N5-oyk" eventType="touchUpInside" id="f9n-Mh-QSc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名前入力" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPo-d4-hMY">
-                                <rect key="frame" x="172" y="179" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前入力" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPo-d4-hMY">
+                                <rect key="frame" x="172" y="144" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,6 +38,15 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="33C-SO-AJv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HPo-d4-hMY" firstAttribute="top" secondItem="33C-SO-AJv" secondAttribute="top" constant="100" id="CRf-Dw-Ium"/>
+                            <constraint firstItem="XCc-0K-JQk" firstAttribute="top" secondItem="HPo-d4-hMY" secondAttribute="bottom" constant="50" id="OSH-nI-ReH"/>
+                            <constraint firstItem="33C-SO-AJv" firstAttribute="trailing" secondItem="XCc-0K-JQk" secondAttribute="trailing" constant="20" id="WZj-ZJ-DlA"/>
+                            <constraint firstItem="HPo-d4-hMY" firstAttribute="centerX" secondItem="vRp-D9-ahh" secondAttribute="centerX" id="nE3-up-loV"/>
+                            <constraint firstItem="XmG-zz-6Du" firstAttribute="centerY" secondItem="vRp-D9-ahh" secondAttribute="centerY" id="sdk-C9-xjk"/>
+                            <constraint firstItem="XmG-zz-6Du" firstAttribute="centerX" secondItem="vRp-D9-ahh" secondAttribute="centerX" id="uvP-OH-3mV"/>
+                            <constraint firstItem="XCc-0K-JQk" firstAttribute="leading" secondItem="33C-SO-AJv" secondAttribute="leading" constant="20" id="vf9-KM-cIq"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="nameTextField" destination="XCc-0K-JQk" id="Q1t-bx-MZq"/>
@@ -285,7 +291,7 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="MultiOthello2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BV1-FR-VrT" customClass="GameViewController" customModule="MultiOthello2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
