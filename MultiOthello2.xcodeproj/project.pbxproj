@@ -26,6 +26,7 @@
 		F46A9D5927CA168100A3AB18 /* TableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D5827CA168100A3AB18 /* TableListViewController.swift */; };
 		F46A9D5B27CA19B300A3AB18 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D5A27CA19B300A3AB18 /* TableViewCell.swift */; };
 		F46A9D5D27CA238900A3AB18 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A9D5C27CA238900A3AB18 /* UIView+.swift */; };
+		F4C1549727CACBDC007F711F /* Othello.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C1549627CACBDC007F711F /* Othello.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		F46A9D5827CA168100A3AB18 /* TableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListViewController.swift; sourceTree = "<group>"; };
 		F46A9D5A27CA19B300A3AB18 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		F46A9D5C27CA238900A3AB18 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		F4C1549627CACBDC007F711F /* Othello.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Othello.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				F46A9D5827CA168100A3AB18 /* TableListViewController.swift */,
 				F46A9D5A27CA19B300A3AB18 /* TableViewCell.swift */,
 				F46A9D5C27CA238900A3AB18 /* UIView+.swift */,
+				F4C1549627CACBDC007F711F /* Othello.swift */,
 			);
 			path = MultiOthello2;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				F46A9D5127CA14CD00A3AB18 /* LoginNameViewController.swift in Sources */,
 				F46A9D5727CA162C00A3AB18 /* CreateTableViewController.swift in Sources */,
 				F46A9D5927CA168100A3AB18 /* TableListViewController.swift in Sources */,
+				F4C1549727CACBDC007F711F /* Othello.swift in Sources */,
 				F46A9D3A27CA114400A3AB18 /* GameScene.swift in Sources */,
 				F46A9D3C27CA114400A3AB18 /* GameViewController.swift in Sources */,
 				F46A9D5527CA159800A3AB18 /* TabBarController.swift in Sources */,
