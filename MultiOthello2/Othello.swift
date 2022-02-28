@@ -108,44 +108,43 @@ class Othello {
     }
 
     func gameFinish() {
-        socket.emit("gameFinish", GameFinishData(tableid: self.tableID!))
-        self.socket.emit("disconnect")
+        guard let tableID = tableID else {
+            return
+        }
+        socket.emit("gameFinish", GameFinishData(tableid: tableID))
+        socket.emit("disconnect")
     }
     func gameStart() {
-        socket.emit("gameStart", GameStartData(tableid: self.tableID!))
+        guard let tableID = tableID else {
+            return
+        }
+        socket.emit("gameStart", GameStartData(tableid: tableID))
     }
 
     func put(node: SKShapeNode, boards: [[SKShapeNode]]) {
+        guard let playerMaxNumber = playerMaxNumber else {
+            return
+        }
         var y = 0
         for_i : for boardRow in boards {
             var x = 0
             for board in boardRow {
                 if node == board {
-                    // 空地ではない場合、処理を抜ける
-                    if boardsColorNumber[y][x] != PUTTABLE_AREA &&
-                        (turn >= (playerMaxNumber! * 2)) {
+                    if boardsColorNumber[y][x] != PUTTABLE_AREA && // 設置しようとした場所が設置可能エリア以外はスキップする
+                        (turn >= (playerMaxNumber * 2)) { // 1人2コマ置くまでは設置処理はスキップする
                         break for_i
                     }
-//                        if totalCount >= playerMaxNumber! * 2 && canIPutAPiece(x: x, y: y, turn: turn) == .canNutPut {
-//                            break for_i
-//                        }
-
                     for yy in 0...7 {
                         for xx in 0...7 {
-                            if boardsColorNumber[yy][xx] == PUTTABLE_AREA {
-                                boardsColorNumber[yy][xx] = EMPTY_AREA
+                            if boardsColorNumber[yy][xx] == PUTTABLE_AREA { //設置可能エリアがある場合
+                                boardsColorNumber[yy][xx] = EMPTY_AREA //空のエリアにする
                             }
                         }
                     }
-
-                    boards[y][x].fillColor = COLORS[turn % playerMaxNumber!]
-                    boardsColorNumber[y][x] = turn % playerMaxNumber!
-
-
-                    socket.emit("put", CustomData(id: self.tableID!, x: x, y: y, turn: turn))
-
-//                        turn += 1
-                    break for_i
+                    boards[y][x].fillColor = COLORS[turn % playerMaxNumber] //設置場所を自分の色にする
+                    boardsColorNumber[y][x] = turn % playerMaxNumber //設置場所を自分の番号にする
+                    socket.emit("put", CustomData(id: self.tableID!, x: x, y: y, turn: turn)) // サーバーに設置場所と手番を送信
+                    break for_i //処理を抜ける
                 }
                 x += 1
             }
@@ -174,7 +173,10 @@ class Othello {
     }
 
     func isMyTurn() -> Bool {
-        return myTurn == turn % playerMaxNumber!
+        guard let playerMaxNumber = playerMaxNumber else {
+            return false
+        }
+        return myTurn == turn % playerMaxNumber
     }
 
     func getBoardsColorNumber() -> [[Int]] {
@@ -182,7 +184,10 @@ class Othello {
     }
 
     func getMyName() -> String {
-        return myName!
+        guard let myName = myName else {
+            return "" // エラー処理が必要かも？
+        }
+        return myName
     }
 
     func getPoints(turn: Int) -> Int {
@@ -224,7 +229,10 @@ class Othello {
     }
 
     func whereCanIPutAPiece(t: Int) {
-        let turn = t % playerMaxNumber!
+        guard let playerMaxNumber = playerMaxNumber else {
+            return
+        }
+        let turn = t % playerMaxNumber
         for yy in 0...7 {
             for xx in 2...7 {
                 if boardsColorNumber[yy][xx] == turn {
@@ -303,51 +311,46 @@ class Othello {
         }
         for xx in 0...7 {
             for yy in 0...7 {
-
-                    if boardsColorNumber[yy][xx] == turn {
-                        var zzzz = 0
-                        for zzz in 1...7 {
-                            if yy >= zzz && xx >= zzz &&
-                               boardsColorNumber[yy - zzz][xx - zzz] != EMPTY_AREA &&
-                               boardsColorNumber[yy - zzz][xx - zzz] != turn &&
-                               boardsColorNumber[yy - zzz][xx - zzz] != PUTTABLE_AREA {
-                                zzzz = zzz
-                            } else {
-                                break
-                            }
-                        }
-                        if zzzz >= 1 && yy > zzzz && xx > zzzz && boardsColorNumber[yy - zzzz - 1][xx - zzzz - 1] == EMPTY_AREA {
-                            boardsColorNumber[yy - zzzz - 1][xx - zzzz - 1] = PUTTABLE_AREA
-//                            break
+                if boardsColorNumber[yy][xx] == turn {
+                    var zzzz = 0
+                    for zzz in 1...7 {
+                        if yy >= zzz && xx >= zzz &&
+                           boardsColorNumber[yy - zzz][xx - zzz] != EMPTY_AREA &&
+                           boardsColorNumber[yy - zzz][xx - zzz] != turn &&
+                           boardsColorNumber[yy - zzz][xx - zzz] != PUTTABLE_AREA {
+                            zzzz = zzz
+                        } else {
+                            break
                         }
                     }
+                    if zzzz >= 1 && yy > zzzz && xx > zzzz && boardsColorNumber[yy - zzzz - 1][xx - zzzz - 1] == EMPTY_AREA {
+                        boardsColorNumber[yy - zzzz - 1][xx - zzzz - 1] = PUTTABLE_AREA
+                    }
+                }
             }
         }
         for xx in 0...7 {
             for yy in 0...7 {
-
-                    if boardsColorNumber[yy][xx] == turn {
-                        var zzzz = 0
-                        for zzz in 1...6 {
-                            if yy + zzz <= 7 && xx + zzz <= 7 &&
-                               boardsColorNumber[yy + zzz][xx + zzz] != EMPTY_AREA &&
-                               boardsColorNumber[yy + zzz][xx + zzz] != turn &&
-                               boardsColorNumber[yy + zzz][xx + zzz] != PUTTABLE_AREA {
-                                zzzz = zzz
-                            } else {
-                                break
-                            }
-                        }
-                        if zzzz >= 1 && yy + zzzz < 7 && xx + zzzz < 7 && boardsColorNumber[yy + zzzz + 1][xx + zzzz + 1] == EMPTY_AREA {
-                            boardsColorNumber[yy + zzzz + 1][xx + zzzz + 1] = PUTTABLE_AREA
-//                            break
+                if boardsColorNumber[yy][xx] == turn {
+                    var zzzz = 0
+                    for zzz in 1...6 {
+                        if yy + zzz <= 7 && xx + zzz <= 7 &&
+                           boardsColorNumber[yy + zzz][xx + zzz] != EMPTY_AREA &&
+                           boardsColorNumber[yy + zzz][xx + zzz] != turn &&
+                           boardsColorNumber[yy + zzz][xx + zzz] != PUTTABLE_AREA {
+                            zzzz = zzz
+                        } else {
+                            break
                         }
                     }
+                    if zzzz >= 1 && yy + zzzz < 7 && xx + zzzz < 7 && boardsColorNumber[yy + zzzz + 1][xx + zzzz + 1] == EMPTY_AREA {
+                        boardsColorNumber[yy + zzzz + 1][xx + zzzz + 1] = PUTTABLE_AREA
+                    }
+                }
             }
         }
         for xx in 0...7 {
             for yy in 0...7 {
-
                 if boardsColorNumber[yy][xx] == turn {
                     var zzzz = 0
                     for zzz in 1...6 {
@@ -362,14 +365,12 @@ class Othello {
                     }
                     if zzzz >= 1 && yy + zzzz < 7 && xx > zzzz && boardsColorNumber[yy + zzzz + 1][xx - zzzz - 1] == EMPTY_AREA {
                         boardsColorNumber[yy + zzzz + 1][xx - zzzz - 1] = PUTTABLE_AREA
-//                            break
                     }
                 }
             }
         }
         for xx in 0...7 {
             for yy in 0...7 {
-
                 if boardsColorNumber[yy][xx] == turn {
                     var zzzz = 0
                     for zzz in 1...6 {
@@ -384,7 +385,6 @@ class Othello {
                     }
                     if zzzz >= 1 && xx + zzzz < 7 && yy > zzzz && boardsColorNumber[yy - zzzz - 1][xx + zzzz + 1] == EMPTY_AREA {
                         boardsColorNumber[yy - zzzz - 1][xx + zzzz + 1] = PUTTABLE_AREA
-//                            break
                     }
                 }
             }
@@ -432,7 +432,10 @@ class Othello {
         }
     }
     func reversi(x: Int, y: Int, t: Int) {
-        let turn = t % playerMaxNumber!
+        guard let playerMaxNumber = playerMaxNumber else {
+            return
+        }
+        let turn = t % playerMaxNumber
         for_xx: for xx in 0...x {
             if boardsColorNumber[y][xx] == turn && (xx + 1) < x {
                 for xxx in (xx + 1)...(x - 1) {
@@ -467,7 +470,6 @@ class Othello {
                 }
             }
         }
-
         for_yy: for yy in 0...y {
             if boardsColorNumber[yy][x] == turn && (yy + 1) < y {
                 for yyy in (yy + 1)...(y - 1) {
@@ -503,7 +505,6 @@ class Othello {
                 }
             }
         }
-
         for_zz: for zz in 1...7 {
             if x + zz <= 7 && y + zz <= 7 && boardsColorNumber[y + zz][x + zz] == turn && zz > 1 {
                 for zzz in 1...(zz - 1) {
@@ -536,7 +537,6 @@ class Othello {
                 break
             }
         }
-
         for_zz: for zz in 1...7 {
             if x + zz <= 7 && y - zz >= 0 && boardsColorNumber[y - zz][x + zz] == turn && zz > 1 {
                 for zzz in 1...(zz - 1) {
@@ -611,27 +611,23 @@ class Othello {
     }
 
     func updatePut(addGameFinishButton: () -> Void, hiddenPassTurnButton: () -> Void, visiblePassTurnButton: () -> Void, updatePointsLabel: () -> Void, boards: [[SKShapeNode]]) {
-
-
-
         guard let putData = putData else { return }
         for doc in putData {
             for yy in 0...7 {
                 for xx in 0...7 {
-                    if boardsColorNumber[yy][xx] == PUTTABLE_AREA {
-                        boardsColorNumber[yy][xx] = EMPTY_AREA
+                    if boardsColorNumber[yy][xx] == PUTTABLE_AREA { // 設置可能エリアは全て
+                        boardsColorNumber[yy][xx] = EMPTY_AREA      // 空のエリアにする
                     }
                 }
             }
-
-            let x: Int = ( (doc as! NSDictionary)["x"] as! Int)
-            let y: Int = ( (doc as! NSDictionary)["y"] as! Int)
-            let t: Int = ( (doc as! NSDictionary)["turn"] as! Int)
-            if t >= 63 && isGameFinish == false {
+            let x: Int = ( (doc as! NSDictionary)["x"] as! Int)    // x位置
+            let y: Int = ( (doc as! NSDictionary)["y"] as! Int)    // y位置
+            let t: Int = ( (doc as! NSDictionary)["turn"] as! Int) // 色（手番）
+            if t >= 63 && isGameFinish == false { // 手番が最後の場合、ゲームが終了してない場合
                 isGameFinish = true
-                addGameFinishButton()
+                addGameFinishButton() // ゲーム終了ボタンを表示させる
             }
-            if (x == -1 && y == -1) == false {
+            if (x == -1 && y == -1) == false { // パスじゃない場合
 
                 boards[y][x].fillColor = COLORS[t % playerMaxNumber!]
                 boardsColorNumber[y][x] = t % playerMaxNumber!
@@ -664,10 +660,10 @@ class Othello {
                         hiddenPassTurnButton()
                     }
                 }
-            } else {
+            } else { // パスの場合
                 turn += 1
                 if (turn % playerMaxNumber!) == myTurn {
-                    whereCanIPutAPiece(t: turn)
+                    whereCanIPutAPiece(t: turn) // 置ける場所を
                     for yy in 0...7 {
                         for xx in 0...7 {
                             if boardsColorNumber[yy][xx] == PUTTABLE_AREA {
@@ -680,6 +676,5 @@ class Othello {
             self.putData = nil
             break
         }
-
     }
 }

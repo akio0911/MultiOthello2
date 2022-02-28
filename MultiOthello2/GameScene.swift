@@ -132,11 +132,6 @@ class GameScene: SKScene {
             labels[t].text = "●" + String(othello.getPoints(turn: t))
         }
     }
-    func fillColorBoards() {
-        othello.fillColorBoards(boards: boards)
-    }
-
-
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
