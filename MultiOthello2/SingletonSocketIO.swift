@@ -18,7 +18,16 @@ class SingletonSocketIO {
         return manager.defaultSocket
     }
 }
-
+struct ConfirmSocketID : SocketData {
+    let tableid: String
+    let name: String
+    let userid: String
+    let turn: Int
+    let socketid: String
+    func socketRepresentation() -> SocketData {
+        return ["tableid": tableid, "name": name, "userid": userid, "turn": turn, "socketid": socketid]
+    }
+}
 struct CustomData : SocketData {
     let id: String
     let x: Int

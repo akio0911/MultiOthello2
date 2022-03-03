@@ -12,16 +12,16 @@ import SpriteKit
 class Othello {
     private let EMPTY_AREA = -1
     private let PUTTABLE_AREA = 777
-
     private var socket: SocketIOClient!
-    private var myName: String?
-    private var tableID: String?
     private var dataList: NSArray! = []
     private var putData: NSArray! = []
     private var joinData: NSArray! = []
     private var gameStartData: NSArray! = []
     private var boardsColorNumber: [[Int]] = []
     private var points: [Int] = []
+    private var tableID: String?
+    private var userID: String?
+    private var myName: String?
     private var myTurn: Int?
     private var turn: Int = 0
     private var playerMaxNumber: Int?
@@ -52,12 +52,24 @@ class Othello {
 
             if account.count >= 1 {
                 self.myName = account[0].name
+                self.userID = account[0].userid
                 self.socket.emit("join", JoinData(tableid: self.tableID!, name: account[0].name, userid: account[0].userid))
             }
         }
 
         socket.on(clientEvent: .disconnect){data, ack in
             print("socket disconnected!")
+        }
+        socket.on("disconnected"){data, ask in
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: data)
+                let json = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
+                print(json)
+//                self.putData = json as NSArray
+            } catch {
+                print("#####error")
+                return
+            }
         }
 
         socket.on("drag"){data, ack in
@@ -390,13 +402,6 @@ class Othello {
             }
         }
     }
-    func canIPutAPiece(x: Int, y: Int, t: Int) -> PuttablePieceResult {
-        if boardsColorNumber[y][x] == PUTTABLE_AREA {
-            return .puttable
-        } else {
-            return .canNutPut
-        }
-    }
     func iCanPutAllPlace() {
         for yy in 0...7 {
             for xx in 0...7 {
@@ -593,6 +598,8 @@ class Othello {
                 let name: String = ( (player as! NSDictionary)["name"] as! String)
                 labels[i].text = "●" + name
                 if name == myName {
+                    let socketid: String = ( (player as! NSDictionary)["socketid"] as! String)
+                    socket.emit("confirm_socketid", ConfirmSocketID(tableid: tableID!, name: myName!, userid: userID!, turn: i, socketid: socketid))
                     myTurn = i
                 }
                 i += 1

@@ -9,12 +9,6 @@ import SpriteKit
 import GameplayKit
 import SwiftUI
 
-enum PuttablePieceResult {
-    case pass
-    case puttable
-    case canNutPut
-}
-
 class GameScene: SKScene {
     private let othello: Othello = Othello()
     private var waitGameButton: SKSpriteNode = SKSpriteNode(imageNamed: "waitGame")
